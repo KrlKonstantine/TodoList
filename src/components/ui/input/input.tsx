@@ -55,8 +55,13 @@ export const CardsInput = (props: CardsInputProps<any>) => {
     }
   }
 
+  const classNames = {
+    inputContainer: clsx(s.inputContainer),
+    watchPassButton: clsx(s.watchPassButton, rest.disabled ? s.disabledIcon : ''),
+  }
+
   return (
-    <div className={s.inputContainer}>
+    <div className={classNames.inputContainer}>
       {/*show and hide password logic
        //TODO should apply Typography for error and label*/}
       {variant === 'password' &&
@@ -66,16 +71,14 @@ export const CardsInput = (props: CardsInputProps<any>) => {
             className={`${s.watchPassButton} ${rest.disabled ? s.disabledIcon : ''}`}
             onClick={toggleWatchPassword}
           >
-            {' '}
-            <CrossedOutWatchPassIcon />{' '}
+            <CrossedOutWatchPassIcon />
           </span>
         ) : (
           <span
             className={`${s.watchPassButton} ${rest.disabled ? s.disabledIcon : ''}`}
             onClick={toggleWatchPassword}
           >
-            {' '}
-            <WatchPassIcon />{' '}
+            <WatchPassIcon />
           </span>
         ))}
 
